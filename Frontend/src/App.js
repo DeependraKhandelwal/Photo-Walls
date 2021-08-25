@@ -15,6 +15,7 @@ import AboutUs from "./components/AboutUs";
 import MyCart from "./components/MyCart";
 import SignIn from "./components/SignIn";
 import Register from "./components/Register";
+import ContactUs from "./components/ContactUs";
 
 function App() {
   return (
@@ -35,9 +36,11 @@ function App() {
           <Route path="/myCart" component={MyCart} />
           <Route path="/signIn" component={SignIn} />
           <Route path="/register" component={Register} />
+          <Route path="/contactus" component={ContactUs} />
         </Switch>
+        <Footer />
       </Router>
-      <Footer />
+      
     </div>
   );
 }
