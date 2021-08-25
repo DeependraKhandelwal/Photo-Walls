@@ -13,42 +13,54 @@ function Home() {
 
   return (
     <div className="container">
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="1300">
+   
+
+      <div
+        id="carouselExampleSlidesOnly"
+        class="carousel slide"
+        data-ride="carousel"
+        data-interval="1300"
+      >
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img class="d-block w-100" src={carousel1} alt="First slide" />
+            <div class="d-none d-md-block text-dark">
+              <h3 className="fw-bolder">Vintage Collections</h3>
+              <h4>
+                Decorate your walls with millions of prints, coming from the
+                best artists around the world, in a wide variety of styles. But
+                more importantly, we’ll help you find just the right one.
+              </h4>
+            </div>
           </div>
           <div class="carousel-item">
             <img class="d-block w-100" src={carousel2} alt="Second slide" />
+            <div class="d-none d-md-block text-dark">
+              <h3 className="fw-bolder">Shop in Fashion Category</h3>
+              <h4>
+                Decorate your walls with millions of prints, coming from the
+                best artists around the world, in a wide variety of styles. But
+                more importantly, we’ll help you find just the right one.
+              </h4>
+            </div>
           </div>
           <div class="carousel-item">
             <img class="d-block w-100" src={carousel3} alt="Third slide" />
+            <div class="d-none d-md-block text-dark">
+              <h3 className="fw-bolder">Inspirational</h3>
+              <h4>
+                Decorate your walls with millions of prints, coming from the
+                best artists around the world, in a wide variety of styles. But
+                more importantly, we’ll help you find just the right one.
+              </h4>
+            </div>
           </div>
         </div>
       </div>
+      <br></br>  
+<hr/>
 
-      <h1 class="text-center text-secondary" style={{ padding: "100px 18px 3px 18px", backgroundColor: "" }}>Happy Customers</h1>
-
-      <br></br>
-
-      <div class="container">
-        <div class="row row-cols-3">
-          <div class="col">
-            <img class="d-block w-100" src={S1} alt="First slide" />
-          </div>
-          <div class="col">
-            <img class="d-block w-100" src={S2} alt="First slide" />
-          </div>
-          <div class="col">
-            <img class="d-block w-100" src={S3} alt="First slide" />
-          </div>
-          <div class="col">
-            <img class="d-block w-100" src={S4} alt="First slide" />
-          </div>
-        </div>
-      </div>
-
-      <br></br>
+<br></br>  
       <br></br>
       <br></br>
 
@@ -74,6 +86,27 @@ function Home() {
 
         </div>
       </div>
+
+      <h1 class="text-center text-secondary" style={{ padding: "100px 18px 3px 18px", backgroundColor: "" }}>Happy Customers</h1>
+
+<br></br>
+
+<div class="container">
+  <div class="row row-cols-3">
+    <div class="col">
+      <img class="d-block w-100" src={S1} alt="First slide" />
+    </div>
+    <div class="col">
+      <img class="d-block w-100" src={S2} alt="First slide" />
+    </div>
+    <div class="col">
+      <img class="d-block w-100" src={S3} alt="First slide" />
+    </div>
+    <div class="col">
+      <img class="d-block w-100" src={S4} alt="First slide" />
+    </div>
+  </div>
+</div>
 
     </div>
   );

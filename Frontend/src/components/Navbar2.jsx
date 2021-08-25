@@ -1,16 +1,10 @@
 import React from 'react'
 import {useHistory} from "react-router-dom";
-// import HomeProduct from "./HomeProduct";
-// import CreateCategory from "./CreateCategory";
-// import EditupdateCategory from "./EditupdateCategory"
-// import EditupdateProduct from "./EditupdateProduct"
-// import AllProduct from "./AllProduct"
-// import AllOrders from "./allOrders"
-// import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+
 function Navbar2() {
 
-  let history=useHistory();
-console.log(history)
+let history=useHistory();
+
     return (
         <div>
         <nav class="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: "black" }}>

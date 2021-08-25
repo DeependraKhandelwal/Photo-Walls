@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Navbar />
+        <Navbar />
         <Switch>
           <Route exact path="/HomeProduct" component={HomeProduct} />
           <Route path="/createCategories" component={CreateCategory} />
@@ -30,11 +30,11 @@ function App() {
           <Route path="/allOrders" component={AllOrders} />
 
           <Route exact path="/" component={Home} />
-            <Route path="/categories" component={Categories} />
-            <Route path="/aboutUs" component={AboutUs} />
-            <Route path="/myCart" component={MyCart} />
-            <Route path="/signIn" component={SignIn} />
-            <Route path="/register" component={Register} />
+          <Route path="/categories" component={Categories} />
+          <Route path="/aboutUs" component={AboutUs} />
+          <Route path="/myCart" component={MyCart} />
+          <Route path="/signIn" component={SignIn} />
+          <Route path="/register" component={Register} />
         </Switch>
       </Router>
       <Footer />
