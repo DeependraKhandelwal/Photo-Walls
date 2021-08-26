@@ -1,8 +1,10 @@
 import React from 'react'
 import category1 from "../images/category1.jpeg"
+import Navbar2 from './Navbar2'
 function AllOrder() {
     return (
         <div>
+            <Navbar2/>
             <div class="container mt-5">
             <h1 class="text-center font-weight-normal">Photos</h1>
 

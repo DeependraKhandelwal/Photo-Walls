@@ -1,8 +1,9 @@
 import React from 'react'
-
+import Navbar2 from './Navbar2'
 function createCategory() {
     return (
         <div>
+            <Navbar2/>
             <div class="container">
 <div class="row justify-content-center">
                     <div class="col-md-8">

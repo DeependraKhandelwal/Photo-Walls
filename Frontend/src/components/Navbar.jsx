@@ -11,7 +11,7 @@ export function Navbar2() {
               fontSize: "30px",
               color: "black",
               paddingLeft: "30px",
-            }} to="">Photo Shopee</a>
+            }}>Photo Shopee</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

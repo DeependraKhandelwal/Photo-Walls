@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 function ContactUs() {
     return (
         <div>
+            <Navbar/>
             <div class="fullWidth contactwel">
                 <div class="container">
                     <div class="row conbody">
@@ -27,6 +29,7 @@ function ContactUs() {
 
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

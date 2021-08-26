@@ -1,5 +1,7 @@
 import { left } from "@popperjs/core";
 import React from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 import carousel1 from "../images/carousel1.jpg";
 import carousel2 from "../images/carousel2.jpg";
 import carousel3 from "../images/carousel3.jpg";
@@ -12,9 +14,10 @@ import "./Home.css";
 function Home() {
 
   return (
-    <div className="container">
-   
 
+    <div>
+   <Navbar/>
+   <div className="container mt-5">
       <div
         id="carouselExampleSlidesOnly"
         class="carousel slide"
@@ -107,7 +110,8 @@ function Home() {
     </div>
   </div>
 </div>
-
+</div>
+<Footer/>
     </div>
   );
 }

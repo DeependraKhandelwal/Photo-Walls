@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 import "./About1.css"
 class AboutUs extends Component {
     render() {
         return (
             <div>
+                <Navbar/>
                <div class="aboutus-section">
         <div class="container">
             <div class="row">
@@ -59,7 +62,9 @@ class AboutUs extends Component {
                 </div>
             </div>
         </div>
-    </div></div>
+    </div>
+    <Footer/>
+    </div>
 
         );
     }
