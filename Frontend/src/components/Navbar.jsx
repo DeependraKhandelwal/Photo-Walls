@@ -1,39 +1,33 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import {useHistory} from "react-router-dom";
-import Home from "./Home";
-import Categories from "./Categories";
-import AboutUs from "./AboutUs";
-import MyCart from "./MyCart";
-import SignIn from "./SignIn";
-import Register from "./Register";
+import "../components/Navbar.css"
+
 export function Navbar2() {
   let history=useHistory();
     return (
-        <nav class="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: "black" }}>
-          <a class="navbar-brand" onClick={()=>{history.push("/")}} to="">Photo Shopee</a>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style={{ backgroundColor: "#EFEFEF" }}>
+          <a class="navbar-brand" href="" onClick={()=>{history.push("/")}} style={{
+              fontFamily: "Open Sans, sans-serif",
+              fontSize: "30px",
+              color: "black",
+              paddingLeft: "30px",
+            }}>Photo Shopee</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" onClick={()=>{history.push("/")}} >Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="" onClick={()=>{history.push("/")}} ><h4 style={{color:'black',fontfamily:'Impact, Haettenschweiler, Arial Narrow Bold, sans-serif'}}>Home</h4><span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onClick={()=>{history.push("/categories")}}>Categories</a>
+                <a class="nav-link" href="" onClick={()=>{history.push("/categories")}}><h4 style={{color:'black',fontfamily:'Impact, Haettenschweiler, Arial Narrow Bold, sans-serif'}}>Categories</h4></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onClick={()=>{history.push("/aboutUs")}}>About Us</a>
+                <a class="nav-link" href="" onClick={()=>{history.push("/myCart")}}><h4 style={{color:'black',fontfamily:'Impact, Haettenschweiler, Arial Narrow Bold, sans-serif'}}>My Cart</h4></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onClick={()=>{history.push("/myCart")}}>My Cart</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onClick={()=>{history.push("/signIn")}}>Signin</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onClick={()=>{history.push("/register")}}>Register</a>
+                <a class="nav-link" href="" onClick={()=>{history.push("/signIn")}}><h4 style={{color:'black',fontfamily:'Impact, Haettenschweiler, Arial Narrow Bold, sans-serif'}}>Signin</h4></a>
               </li>
             </ul>
           </div>

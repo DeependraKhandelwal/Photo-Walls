@@ -1,8 +1,10 @@
 import React from 'react'
+import Navbar2 from './Navbar2'
 import category1 from "../images/category1.jpeg"
 function HomeProduct() {
     return (
         <div>
+            <Navbar2/>
             <div class="container mt-5">
             <h1 class="text-center font-weight-normal">Photos</h1>
 

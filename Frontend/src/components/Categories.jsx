@@ -1,8 +1,13 @@
 import React from 'react'
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 import category1 from "../images/category1.jpeg"
 function Categories() {
     return (
-        <div class="container mt-5">
+        
+        <div>
+            <Navbar/>
+            <div class="container mt-5">
             <h1 class="text-center font-weight-normal">Photos</h1>
 
             <div class="container mt-4 d-flex mb-5">
@@ -115,10 +120,10 @@ function Categories() {
 
 
             </div>
+            </div>
 
 
-
-
+            <Footer/>
         </div>
     )
 }

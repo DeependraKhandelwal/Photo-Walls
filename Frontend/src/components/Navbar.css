@@ -1,0 +1,19 @@
+h4{
+    color: black;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-weight: bolder;
+}
+
+.navbar-toggler{
+    width: 47px;
+    height: 34px;
+    background-color: black;
+}
+.navbar-toggler .navbar-toggler-icon{
+    width: 100%;
+    float: left;
+    height: 20px;
+    background-color: black;
+}

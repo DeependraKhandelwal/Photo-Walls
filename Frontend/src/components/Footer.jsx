@@ -1,6 +1,7 @@
 import React from "react";
-
+import {useHistory} from "react-router-dom";
 function Footer() {
+  let history=useHistory();
   return (
     <footer class="page-footer font-small indigo">
       <hr />
@@ -8,29 +9,24 @@ function Footer() {
 
         <div class="row text-center d-flex justify-content-center pt-5 mb-3">
 
-          <div class="col-md-2 mb-3">
+        <div class="col-md-2 mb-3">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="#!">About us</a>
+              <a href="" onClick={()=>{history.push("/Home")}}>Home</a>
             </h6>
           </div>
           <div class="col-md-2 mb-3">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="#!">Products</a>
+              <a href="" onClick={()=>{history.push("/aboutUs")}}>About us</a>
             </h6>
           </div>
           <div class="col-md-2 mb-3">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="#!">Awards</a>
+              <a href="" onClick={()=>{history.push("/categories")}}>Category</a>
             </h6>
           </div>
           <div class="col-md-2 mb-3">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="#!">Help</a>
-            </h6>
-          </div>
-          <div class="col-md-2 mb-3">
-            <h6 class="text-uppercase font-weight-bold">
-              <a href="#!">Contact</a>
+              <a href="" onClick={()=>{history.push("/contactus")}}>Contact</a>
             </h6>
           </div>
 

@@ -1,9 +1,11 @@
 import React from 'react'
 import "../MyCart.css"
-
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 function MyCart() {
     return (
-
+        <>
+<Navbar/>
         <div class="container">
             <div class="row">
                 <div class="col-xs-8">
@@ -91,6 +93,8 @@ function MyCart() {
                 </div>
             </div>
         </div>
+        <Footer/>
+        </>
     )
 }
 
