@@ -32,6 +32,9 @@ let history=useHistory();
               <li class="nav-item">
                 <a class="nav-link" href="" onClick={()=>{history.push("/allOrders")}}>All Orders</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="" onClick={()=>{history.push("/")}}>LogOut</a>
+              </li>
             </ul>
           </div>
         </nav>
