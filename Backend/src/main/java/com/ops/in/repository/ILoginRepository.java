@@ -15,12 +15,12 @@ public interface ILoginRepository extends JpaRepository<User, String> {
 	public User signOut(User user);*/
 
 	
-	@Query("select u from User u where u.userId=:userId and u.password=:password")
-    public User findValidateUser(@Param("userId")String userId, @Param("password")String password);
+	@Query("select u from User u where u.userName=:userName and u.password=:password")
+    public User findValidateUser(@Param("userName")String userName, @Param("password")String password);
 
 
-	@Query("select u.password from User u where u.userId=:userId")
-	public String getPassword(@Param("userId") String userId);
+	@Query("select u.password from User u where u.userName=:userName")
+	public String getPassword(@Param("userName") String userName);
 	
 	
 
