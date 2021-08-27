@@ -12,13 +12,18 @@ import AllProduct from "./components/AllProduct";
 import AllOrders from "./components/AllOrders";
 
 import Home from "./components/Home";
-import Categories from "./components/Categories";
+// import Categories from "./components/Categories";
 import AboutUs from "./components/AboutUs";
 import MyCart from "./components/MyCart";
 import SignIn from "./components/SignIn";
 import Register from "./components/Register";
 import ContactUs from "./components/ContactUs";
 import SignUpAction from "./components/SignUpAction";
+import CreateCategoryf from "./components/Categoryc/CreateCategoryf";
+import ViewCategoryf from "./components/Categoryc/ViewCategoryf";
+import CreateProduct from "./components/products/CreateProduct";
+import ViewCategoryCustumer from "./components/Categoryc/ViewCategoryCustumer";
+import ViewProductf from "./components/products/ViewProductf";
 function App() {
   return (
       <Router>
@@ -26,13 +31,13 @@ function App() {
     <div className="App">
         <Switch>
           <Route exact path="/HomeProduct" component={HomeProduct} />
-          <Route path="/createCategories" component={CreateCategory} />
-          <Route path="/edit/updateCategory" component={EditupdateCategory} />
-          <Route path="/edit/updateProduct" component={EditupdateProduct} />
-          <Route path="/allProduct" component={AllProduct} />
+          <Route path="/createCategories" component={CreateCategoryf} />
+          <Route path="/edit/updateCategory" component={ViewCategoryf} />
+          <Route path="/edit/updateProduct" component={ViewProductf} />
+          <Route path="/allProduct" component={CreateProduct} />
           <Route path="/allOrders" component={AllOrders} />
           <Route exact path="/" component={Home} />
-          <Route path="/categories" component={Categories} />
+          <Route path="/categories" component={ViewCategoryCustumer} />
           <Route path="/aboutUs" component={AboutUs} />
           <Route path="/myCart" component={MyCart} />
           <Route path="/signIn" component={SignIn} />
