@@ -24,13 +24,14 @@ import ViewCategoryf from "./components/Categoryc/ViewCategoryf";
 import CreateProduct from "./components/products/CreateProduct";
 import ViewCategoryCustumer from "./components/Categoryc/ViewCategoryCustumer";
 import ViewProductf from "./components/products/ViewProductf";
+import ViewProductCustomer from "./components/products/ViewProductCustomer";
 function App() {
   return (
       <Router>
         <Provider store={store}>
     <div className="App">
         <Switch>
-          <Route exact path="/HomeProduct" component={HomeProduct} />
+          <Route exact path="/HomeProduct" component={ViewProductCustomer} />
           <Route path="/createCategories" component={CreateCategoryf} />
           <Route path="/edit/updateCategory" component={ViewCategoryf} />
           <Route path="/edit/updateProduct" component={ViewProductf} />

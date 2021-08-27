@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { deleteProduct, fetchProduct } from '../../redux/Product/productThunks'
+import { useHistory } from "react-router-dom";
 // import { deleteCategory, fetchCategory } from '../../redux/Category/productThunks'
 import Navbar2 from '../Navbar2'
 
@@ -8,6 +9,7 @@ function ViewProductf({ fetchProducts, productData, deleteProducts }) {
 
 
 
+    const history = useHistory()
     const [products, SetProducts] = useState({
         color: '',
         dimension: '',
@@ -27,33 +29,37 @@ function ViewProductf({ fetchProducts, productData, deleteProducts }) {
     }, [])
 
     const handleDelete = (pid) => {
-        deleteProducts(pid)
+        if (window.confirm("Are you sure you want to delete the Category!!")){
+             deleteProducts(pid)
+             setTimeout(function () {
+                myFunction();
+            }, 1000)
+        }
+       
         console.log("spid", pid)
-        //    const name = cid.target.
-        //    SetCategorys(products.filter(item => item.productId !== name))
+        
     }
 
-    // return productData.loading?(<h2>Loading.....</h2>):
-    //     productData.error?(<h2>{productData.error}</h2>)
-
-    //         : (
-    // <div>
+    function myFunction() {
 
 
+        history.push({
+            pathname: "/edit/updateProduct"
+        })
 
+        window.location.reload(false)
+    }
 
-
-
-    let itemstoRender;
+    let itemstoRenders;
     if (productData.loading) {
-        itemstoRender = <h1>Loading...</h1>
+        itemstoRenders = (<h1>Loading...</h1>)
     }
     else if (productData.error) {
-        itemstoRender = <h1>productData.error</h1>
+        itemstoRenders = (<h1>productData.error</h1>)
     } else {
 
-        itemstoRender =
-            <div className="text-left">
+        itemstoRenders =
+        productData.Product.length !== 0 ? (<div className="text-left">
                 <h2>ProductS</h2>
 
                 <h4 className='text-success'>{productData.message && productData.message.data}</h4>
@@ -105,29 +111,17 @@ function ViewProductf({ fetchProducts, productData, deleteProducts }) {
 
                 </table>
 
-            </div>
+            </div>): (
+                <div>
+                    <h1>no category</h1>
+                    <button>Add Product</button>
+                </div>
+            )
     }
 
-    return itemstoRender;
+   return itemstoRenders;
 
-    // return <div>
-    //     <h1>lfjls</h1>
-
-
-    //     </div>
-
-
-
-
-
-
-
-    // : (<div>
-    //     <h1>no product</h1>
-    //     <button>Add Product</button>
-    // </div>)
-    {/* </div> */ }
-    // )
+    
 }
 const mapStateToProps = (state) => {
     return {

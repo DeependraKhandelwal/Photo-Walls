@@ -5,11 +5,6 @@ import Navbar2 from '../Navbar2'
 import { useHistory } from "react-router-dom";
 function ViewCategoryf({ fetchCategorys, categoryData, deleteCategorys }) {
 
-    const [categorys, SetCategorys] = useState({
-        categoryName: '',
-        categoryDescription: ''
-
-    })
 
     const history = useHistory()
     useEffect(() => {
@@ -35,9 +30,14 @@ function ViewCategoryf({ fetchCategorys, categoryData, deleteCategorys }) {
 
         window.location.reload(false)
     }
+
+    
     let itemstoRender;
-    if (categoryData.loading) { itemstoRender = <h2>Loading.....</h2> }
-    else if (categoryData.error) { itemstoRender = <h2>{categoryData.error}</h2> }
+    if (categoryData.loading) { 
+        itemstoRender = <h2>Loading.....</h2> }
+    else if (categoryData.error) { 
+        itemstoRender = <h2>{categoryData.error}</h2>
+     }
 
     else {
 
@@ -92,7 +92,7 @@ function ViewCategoryf({ fetchCategorys, categoryData, deleteCategorys }) {
             // )
 
     }
-    return itemstoRender;
+    return (itemstoRender);
 }
 const mapStateToProps = (state) => {
     return {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import { saveProduct } from '../../redux/Product/productThunks';
+import Navbar2 from '../Navbar2';
 
 function CreateProduct(props) {
 
@@ -71,7 +72,7 @@ function CreateProduct(props) {
     // }
 
     return (
-        <div>
+        <div><Navbar2/>
             <h2>Product</h2>
             <hr />
             {/* <h4 className='text-success'>{categorys.msg && categorys.msg}</h4>
