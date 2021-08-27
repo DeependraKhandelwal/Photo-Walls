@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../src/index.css">
   <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -46,8 +48,10 @@
 
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <a id="back-to-top" href="#" class="btn btn-secondary btn-lg back-to-top" role="button">^</a>
+  <a id="back-to-top" href="#" class="btn btn-secondary btn-lg back-to-top" role="button" style="background-color: black;"><i class="bi bi-arrow-up-square-fill" id="top-arrow"></i></a>
 
+<i class="fas fa-arrow-up"></i>
+</button>
   <script>
     $(document).ready(function () {
       $(window).scroll(function () {
