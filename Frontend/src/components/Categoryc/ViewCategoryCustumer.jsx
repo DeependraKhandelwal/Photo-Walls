@@ -28,7 +28,7 @@ function ViewCategoryCustumer({ fetchCategorys, categoryData }) {
     else if (categoryData.error) { 
         itemstoRender = <h2>{categoryData.error}</h2>
      }
-     else if(categoryData.length !== 0){
+     else if(categoryData.category.length === 0){
          itemstoRender=<div>
              <Navbar2/>
                 <h1>no category</h1>
@@ -45,7 +45,7 @@ function ViewCategoryCustumer({ fetchCategorys, categoryData }) {
             <div class="container mt-4 d-flex mb-5">
                 <div class="row">{
                 categoryData.category.map(category =>
-                    (<div class="col-md-4 mt-5">
+                    (<div key={category.categoryId }class="col-md-4 mt-5">
                         <div class="card">
                             <img src={category.categoryDescription} alt='image not found' class="card-image-top w-100" />
                             <div class="crad-body">

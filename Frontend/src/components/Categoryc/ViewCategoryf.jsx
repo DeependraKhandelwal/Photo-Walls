@@ -38,7 +38,7 @@ function ViewCategoryf({ fetchCategorys, categoryData, deleteCategorys }) {
     else if (categoryData.error) { 
         itemstoRender = <h2>{categoryData.error}</h2>
      }
-     else if(categoryData.length !== 0){
+     else if(categoryData.category.length === 0){
          itemstoRender=<div>
              <Navbar2/>
                 <h1>no category</h1>
