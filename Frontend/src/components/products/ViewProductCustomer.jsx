@@ -6,8 +6,8 @@ import category1 from '../../images/category1.jpeg'
 import Navbar2 from '../Navbar2'
 import { Link } from 'react-router-dom'
 
-function ViewProductCustomer({ fetchProducts, productData }) {
-    
+function ViewProductCustomer({ fetchProducts, productData,}) {
+    // addtoCarts
 
 
     let history=useHistory();
@@ -19,6 +19,8 @@ function ViewProductCustomer({ fetchProducts, productData }) {
         console.log(productData)
     }, [])
 
+
+    
 
 
 
@@ -44,7 +46,9 @@ function ViewProductCustomer({ fetchProducts, productData }) {
                         productData.Product.map(product =>
                         (<div class="col-md-4 mt-5">
                             <div class="card">
-                               <a href="#" onClick={()=>{history.push("/categories")}}><img src={category1} alt='image not found' class="card-image-top w-100" /></a>
+                               <a href="#" onClick={()=>{history.push("/categories")}}>
+                                   
+                                   <img src={product.productImage} alt='image not found' class="card-image-top w-100" /></a>
                                 <div class="crad-body">
                                     <h2 >{product.productName}</h2>
                                     <div class="d-flex justify-content-between">
@@ -52,6 +56,7 @@ function ViewProductCustomer({ fetchProducts, productData }) {
                                         </p>
                                         <p class="card-text mr-4 text-success">₹{product.price}</p>
                                     </div>
+                                    {/* <button onClick={()=>addtoCarts(product.productId)}>addtoCart</button> */}
                                     <a href="#" class="card-link" data-toggle="modal" data-target="#modalId"> More</a>
                                 </div>
                             </div>
@@ -78,6 +83,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchProducts: (product) => dispatch(fetchProduct(product)),
 
+        // addtoCarts:(pid)=>dispatch(addtoCart(pid))
     }
 }
 

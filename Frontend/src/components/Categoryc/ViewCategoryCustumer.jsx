@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import { connect } from 'react-redux'
-import category1 from '../../images/category1.jpeg'
+// import category1 from '../../images/category1.jpeg'
 
 import ReactDOM from "react-dom";
 import { fetchCategory } from '../../redux/Category/categoryThunks'
