@@ -22,8 +22,22 @@ function ViewCategoryCustumer({ fetchCategorys, categoryData }) {
     }, [])
 
 
-    return (
-        <div>
+    let itemstoRender;
+    if (categoryData.loading) { 
+        itemstoRender = <h2>Loading.....</h2> }
+    else if (categoryData.error) { 
+        itemstoRender = <h2>{categoryData.error}</h2>
+     }
+     else if(categoryData.length !== 0){
+         itemstoRender=<div>
+             <Navbar2/>
+                <h1>no category</h1>
+                
+              </div>
+     }
+
+     else{
+       itemstoRender= <div>
         <Navbar2 />
         <div class="container mt-5">
             <h1 class="text-center font-weight-normal">Categorys</h1>
@@ -50,7 +64,8 @@ function ViewCategoryCustumer({ fetchCategorys, categoryData }) {
             </div>
         </div>
         </div>
-    )
+     }
+     return itemstoRender;
 }
 // ReactDOM.render(
 //     <Router>

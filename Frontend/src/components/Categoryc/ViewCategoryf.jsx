@@ -38,12 +38,20 @@ function ViewCategoryf({ fetchCategorys, categoryData, deleteCategorys }) {
     else if (categoryData.error) { 
         itemstoRender = <h2>{categoryData.error}</h2>
      }
+     else if(categoryData.length !== 0){
+         itemstoRender=<div>
+             <Navbar2/>
+                <h1>no category</h1>
+                 <button onClick={()=>{history.push("/createCategories")}}>Add Product</button>
+              </div>
+     }
 
     else {
 
         {/* <Navbar2></Navbar2> */ }
         // categorys.length !== 0 ? (
-            <div className="text-left">
+          itemstoRender=  <div className="text-left">
+              <Navbar2/>
                 <h2>CATEGORYS</h2>
 
                 <h4 className='text-success'>{categoryData.message && categoryData.message.data}</h4>

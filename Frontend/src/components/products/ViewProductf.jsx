@@ -60,6 +60,7 @@ function ViewProductf({ fetchProducts, productData, deleteProducts }) {
 
         itemstoRenders =
         productData.Product.length !== 0 ? (<div className="text-left">
+            <Navbar2/>
                 <h2>ProductS</h2>
 
                 <h4 className='text-success'>{productData.message && productData.message.data}</h4>
