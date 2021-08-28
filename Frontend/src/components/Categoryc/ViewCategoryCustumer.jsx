@@ -1,11 +1,21 @@
 import React,{useEffect} from 'react'
 import { connect } from 'react-redux'
 import category1 from '../../images/category1.jpeg'
+
+import ReactDOM from "react-dom";
 import { fetchCategory } from '../../redux/Category/categoryThunks'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useParams
+  } from "react-router-dom"
 import Navbar2 from '../Navbar'
 
 function ViewCategoryCustumer({ fetchCategorys, categoryData }) {
 
+    let { sumit } = useParams();
+    console.log("ljdfsl",sumit)
     useEffect(() => {
         fetchCategorys()
 
@@ -42,6 +52,19 @@ function ViewCategoryCustumer({ fetchCategorys, categoryData }) {
         </div>
     )
 }
+// ReactDOM.render(
+//     <Router>
+//       <Switch>
+//         <Route exact path="/">
+//           {/* <HomePage /> */}
+//         </Route>
+//         <Route path="/categories/:slug">
+//           {/* <BlogPost /> */}
+//         </Route>
+//       </Switch>
+//     </Router>,
+//     // node
+//   );
 const mapStateToProps = (state) => {
     return {
         categoryData: state.category
