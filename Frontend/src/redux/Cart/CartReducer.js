@@ -1,144 +1,56 @@
-import { DELETE_CART_FAILURE, DELETE_CART_REQUEST, DELETE_CART_SUCCESS, FETCH_CART_FAILURE, FETCH_CART_REQUEST, FETCH_CART_SUCCESS, SAVE_CART_REQUEST, SAVE_CART_SUCCESS, SAVE_CART_FAILURE, UPDATE_CART_FAILURE, UPDATE_CART_REQUEST, UPDATE_CART_SUCCESS } from "./CartType"
+import * as actionTypes from "./CartType";
 
-const initalState = {
-    cart: [],
-    error: '',
-    loading: false,
-    message: ''
-}
+const INITIAL_STATE = {
+  products: [],
+  cart: [],
+  currentItem: null,
+};
 
-// ===========================================================================
-const cartReducer = (state = initalState, action) => {
-    switch (action.type) {
-        case FETCH_CART_REQUEST: {
+const CartReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case actionTypes.ADD_TO_CART:
+      // Great Item data from products array
+      const item = state.products.find(
+        (product) => product.id === action.payload.id
+      );
+      // Check if Item is in cart already
+      const inCart = state.cart.find((item) =>
+        item.id === action.payload.id ? true : false
+      );
 
-            return {
-                ...state,
-                loading: true
-            }
+      return {
+        ...state,
+        cart: inCart
+          ? state.cart.map((item) =>
+              item.id === action.payload.id
+                ? { ...item, qty: item.qty + 1 }
+                : item
+            )
+          : [...state.cart, { ...item, qty: 1 }],
+      };
+    case actionTypes.REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload.id),
+      };
+    case actionTypes.ADJUST_ITEM_QTY:
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, qty: +action.payload.qty }
+            : item
+        ),
+      };
+    case actionTypes.LOAD_CURRENT_ITEM:
+      return {
+        ...state,
+        currentItem: action.payload.data,
+        products:action.payload.data.productList
+      };
+    default:
+      return state;
+  }
+};
 
-        }
-
-        case FETCH_CART_SUCCESS: {
-
-            return {
-                ...state,
-                loading: false,
-                cart: action.payload,
-                error: ''
-
-            }
-
-        }
-
-        case FETCH_CART_FAILURE: {
-
-            return {
-                ...state,
-                loading: false,
-                error: action.payload
-            }
-        }
-
-//=========================================================================== 
-        case SAVE_CART_REQUEST: {
-
-            return {
-                ...state,
-                loading: true
-            }
-
-        }
-
-        case SAVE_CART_SUCCESS: {
-
-            return {
-                ...state,
-                loading: false,
-                message: action.payload,
-                error: ''
-            }
-        }
-
-        case SAVE_CART_FAILURE: {
-
-            return {
-                ...state,
-                loading: false,
-                error: action.payload
-            }
-        }
-//===========================================================================
-        case DELETE_CART_REQUEST: {
-
-            return {
-                ...state,
-                loading: true
-            }
-
-        }
-
-        case DELETE_CART_SUCCESS: {
-
-            return {
-                ...(state.filter(s => s !== action.payload)),
-
-                loading: false,
-                // cart:[],
-                error: '',
-                message: action.payload
-
-            }
-
-        }
-
-        case DELETE_CART_FAILURE: {
-
-            return {
-                ...state,
-                loading: false,
-                error: action.payload
-            }
-        }
-
-        //===========================================================================
-        case UPDATE_CART_REQUEST: {
-
-            return {
-                ...state,
-                loading: true
-            }
-
-        }
-
-        case UPDATE_CART_SUCCESS: {
-
-
-            return {
-                ...state,
-                loading: false,
-                cart: action.payload,
-                error: '',
-
-
-            }
-
-        }
-
-        case UPDATE_CART_FAILURE: {
-
-            return {
-                ...state,
-                loading: false,
-                error: action.payload
-            }
-        }
-
-
-        default: {
-            return state
-        }
-    }
-}
-
-export default cartReducer
+export default CartReducer

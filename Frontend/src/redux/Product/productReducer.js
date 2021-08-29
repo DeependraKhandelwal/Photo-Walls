@@ -1,4 +1,4 @@
-import { DELETE_PRODUCT_FAILURE, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, FETCH_PRODUCT_FAILURE, FETCH_PRODUCT_REQUEST, FETCH_PRODUCT_SUCCESS, SAVE_PRODUCT_SUCCESS, UPDATE_PRODUCT_FAILURE, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS } from "./productType"
+import { DELETE_PRODUCT_FAILURE, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_SUCCESS, FETCH_PRODUCT_FAILURE, FETCH_PRODUCT_REQUEST, FETCH_PRODUCT_SUCCESS, FETCH_PRODUCT_SUCCESS_BY_ID, SAVE_PRODUCT_SUCCESS, UPDATE_PRODUCT_FAILURE, UPDATE_PRODUCT_REQUEST, UPDATE_PRODUCT_SUCCESS } from "./productType"
 
 const initalState = {
     Product: [],
@@ -117,6 +117,18 @@ const productReducer = (state = initalState, action) => {
                 loading: false,
                 error: action.payload
             }
+        }
+
+        case FETCH_PRODUCT_SUCCESS_BY_ID: {
+
+            return {
+                ...state,
+                loading: false,
+                Product: action.payload,
+                error: ''
+
+            }
+
         }
 
 

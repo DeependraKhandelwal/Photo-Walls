@@ -56,7 +56,14 @@ function ViewProductf({ fetchProducts, productData, deleteProducts }) {
     }
     else if (productData.error) {
         itemstoRenders = (<h1>productData.error</h1>)
-    } else {
+    }else if(productData.product.length === 0){
+        itemstoRenders=<div>
+            <Navbar2/>
+               <h1>no product</h1>
+                
+             </div>
+    } 
+    else {
 
         itemstoRenders =
         productData.Product.length !== 0 ? (<div className="text-left">

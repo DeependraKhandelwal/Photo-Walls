@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { Provider } from 'react-redux'
 import store from './redux/store'
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch ,useParams} from "react-router-dom";
 import HomeProduct from "./components/HomeProduct";
 import CreateCategory from "./components/CreateCategory";
 import EditupdateCategory from "./components/EditupdateCategory";
@@ -25,6 +25,10 @@ import CreateProduct from "./components/products/CreateProduct";
 import ViewCategoryCustumer from "./components/Categoryc/ViewCategoryCustumer";
 import ViewProductf from "./components/products/ViewProductf";
 import ViewProductCustomer from "./components/products/ViewProductCustomer";
+
+import ProductPage from "./components/products/productpage";
+import cart from "./components/MyCart/Cart";
+// import cart from "./components/MyCart/cart";
 function App() {
   return (
       <Router>
@@ -40,13 +44,15 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/categories" component={ViewCategoryCustumer} />
           <Route path="/aboutUs" component={AboutUs} />
-          <Route path="/myCart" component={MyCart} />
+          <Route path="/myCart" component={cart} />
           <Route path="/signIn" component={SignIn} />
           <Route path="/register" component={Register} />
 
           <Route path="/signupactions" component={SignUpAction} />
 
           <Route path="/contactus" component={ContactUs} />
+
+          <Route path="/productpage/:id" component={ProductPage} />
         </Switch>  
         </div>   
         </Provider>
