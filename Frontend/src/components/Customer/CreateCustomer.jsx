@@ -1,63 +1,44 @@
 import React, { useState } from "react";
 
 import { connect } from "react-redux";
-import { saveCategory } from "../../redux/Category/categoryThunks";
+import { saveCustomer } from "../../redux/Customer/customerThunks";
 import Navbar2 from "../Navbar2";
-function CreateCategoryf(props) {
-  const [categorys, SetCategorys] = useState({
-    categoryName: "",
-    categoryDescription: "",
-    products: [
-      {
-        color: "",
-        dimension: "",
-        manufacturer: "",
-        price: 0,
-        productId: 0,
-        productImage: "",
-        productName: "",
-        quantity: 0,
-        specification: "",
-      },
-    ],
+function CreateCustomerf(props) {
+  const [customers, SetCustomers] = useState({
+    addressId: 0,
+    buildingName: "",
+    cartId: 0,
+    city: "",
+    country: "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    mobileNumber: "",
+    password: "",
+    pincode: "",
+    state: "",
+    streetNo: "",
   });
 
   function handleInput(e) {
-    SetCategorys({
-      ...categorys,
+    SetCustomers({
+      ...customers,
       [e.target.name]: e.target.value,
     });
   }
-  /*
-    {"categoryName":"","categoryDescription":"",
-    "products":[{"color":"","dimension":"","manufacturer":"","price":0,"productId":0,"productImage":"","productName":"","quantity":0,"specification":""}]}
-    */
-  function handleInput1(e) {
-    console.log(JSON.stringify({ ...categorys }));
 
-    //console.log(JSON.stringify(categorys))
-    SetCategorys({
-      //...categorys,products:[...categorys.products[0],{[e.target.name]:e.target.value}]
-      ...categorys,
-      products: [{ ...categorys.products[0], [e.target.name]: e.target.value }],
-    });
-  }
-  // {...bform,passengerList:{...bform.passengerList,passengerName : e.target.value}})}
   function handleSubmit(ev) {
     ev.preventDefault();
 
-    props.saveCategorys(categorys);
-    console.log(categorys);
+    props.saveCustomers(customers);
+    console.log(customers);
   }
-  {
-    /* <h4 className='text-success'>{categorys.msg && categorys.msg}</h4>
-                <h4 className='text-danger'>{categorys.error && categorys.error}</h4> */
-  }
+
   return (
     <div>
       <Navbar2 />
       <div class="container mt-5">
-        <h2>Category</h2>
+        <h2>Customer</h2>
         <hr />
 
         <h1>functional</h1>
@@ -67,7 +48,7 @@ function CreateCategoryf(props) {
         >
           <div class="col-12">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">
-              Category Name
+              Customer Name
             </label>
             <div class="input-group">
               <div class="input-group-text">@</div>
@@ -76,9 +57,25 @@ function CreateCategoryf(props) {
                 type="text"
                 class="form-control"
                 id="inlineFormInputGroupUsername"
-                value={categorys.categoryName}
-                name="categoryName"
-                placeholder="Category Name"
+                value={customers.firstName}
+                name="firstName"
+                placeholder="first Name"
+                onChange={handleInput}
+              />
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="input-group">
+              <div class="input-group-text">@</div>
+
+              <input
+                type="text"
+                class="form-control"
+                id="inlineFormInputGroupUsername"
+                value={customers.lastName}
+                name="lastName"
+                placeholder="last Name"
                 onChange={handleInput}
               />
             </div>
@@ -86,7 +83,7 @@ function CreateCategoryf(props) {
 
           <div class="col-12">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">
-              Description
+              Building Name
             </label>
             <div class="input-group">
               <div class="input-group-text">@</div>
@@ -95,164 +92,139 @@ function CreateCategoryf(props) {
                 name="description"
                 class="form-control"
                 id="inlineFormInputGroupUsername"
-                name="categoryDescription"
+                name="customerBuildingName"
                 cols="70"
                 rows="1"
-                value={categorys.categoryDescription}
-                name="categoryDescription"
+                value={customers.buildingName}
+                name="buildingName"
                 onChange={handleInput}
-                placeholder="Discription"
+                placeholder="building Name"
               />
             </div>
           </div>
 
           <div class="col-12">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">
-              productName
+              City
             </label>
             <div class="input-group">
               <div class="input-group-text">@</div>
-              {JSON.stringify(categorys.products)}
               <input
                 type="text"
                 class="form-control"
                 id="inlineFormInputGroupUsername"
-                value={categorys.products[0].productName}
-                name="productName"
-                placeholder="productName"
-                onChange={handleInput1}
-              />
-            </div>
-          </div>
-          <div class="col-12">
-            <label class="visually-hidden" for="inlineFormInputGroupUsername">
-              specification
-            </label>
-            <div class="input-group">
-              <div class="input-group-text">@</div>
-
-              <input
-                type="text"
-                class="form-control"
-                id="inlineFormInputGroupUsername"
-                value={categorys.products[0].specification}
-                name="specification"
-                placeholder="specification"
-                onChange={handleInput1}
+                value={customers.city}
+                name="city"
+                placeholder="City"
+                onChange={handleInput}
               />
             </div>
           </div>
 
           <div class="col-12">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">
-              quantity
+              Country
             </label>
             <div class="input-group">
               <div class="input-group-text">@</div>
-
               <input
                 type="text"
                 class="form-control"
                 id="inlineFormInputGroupUsername"
-                value={categorys.products[0].quantity}
-                name="quantity"
-                placeholder="quantity"
-                onChange={handleInput1}
+                value={customers.country}
+                name="country"
+                placeholder="Country"
+                onChange={handleInput}
               />
             </div>
           </div>
 
           <div class="col-12">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">
-              price
+              Email
             </label>
             <div class="input-group">
               <div class="input-group-text">@</div>
-
               <input
                 type="text"
                 class="form-control"
                 id="inlineFormInputGroupUsername"
-                value={categorys.products[0].price}
-                name="price"
-                placeholder="price"
-                onChange={handleInput1}
+                value={customers.email}
+                name="email"
+                placeholder="Email"
+                onChange={handleInput}
               />
             </div>
           </div>
 
           <div class="col-12">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">
-              manufacturer
+              Mobile Number
             </label>
             <div class="input-group">
               <div class="input-group-text">@</div>
-
               <input
                 type="text"
                 class="form-control"
                 id="inlineFormInputGroupUsername"
-                value={categorys.products[0].manufacturer}
-                name="manufacturer"
-                placeholder="manufacturer"
-                onChange={handleInput1}
+                value={customers.mobileNumber}
+                name="mobileNumber"
+                placeholder="Mobile Number"
+                onChange={handleInput}
               />
             </div>
           </div>
 
           <div class="col-12">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">
-              color
+              Pin Code
             </label>
             <div class="input-group">
               <div class="input-group-text">@</div>
-
               <input
                 type="text"
                 class="form-control"
                 id="inlineFormInputGroupUsername"
-                value={categorys.products[0].color}
-                name="color"
-                placeholder="color"
-                onChange={handleInput1}
+                value={customers.pincode}
+                name="pincode"
+                placeholder="Pincode"
+                onChange={handleInput}
               />
             </div>
           </div>
 
           <div class="col-12">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">
-              dimension
+              State
             </label>
             <div class="input-group">
               <div class="input-group-text">@</div>
-
               <input
                 type="text"
                 class="form-control"
                 id="inlineFormInputGroupUsername"
-                value={categorys.products[0].dimension}
-                name="dimension"
-                placeholder="dimension"
-                onChange={handleInput1}
+                value={customers.state}
+                name="state"
+                placeholder="state"
+                onChange={handleInput}
               />
             </div>
           </div>
 
           <div class="col-12">
             <label class="visually-hidden" for="inlineFormInputGroupUsername">
-              productImage
+              Street Number
             </label>
             <div class="input-group">
               <div class="input-group-text">@</div>
-
               <input
                 type="text"
                 class="form-control"
                 id="inlineFormInputGroupUsername"
-                value={categorys.products[0].productImage}
-                name="productImage"
-                placeholder="productImage"
-                onChange={handleInput1}
+                value={customers.streetNo}
+                name="streetNo"
+                placeholder="Street Number"
+                onChange={handleInput}
               />
             </div>
           </div>
@@ -267,15 +239,16 @@ function CreateCategoryf(props) {
     </div>
   );
 }
+
 const mapStateToProps = (state) => {
   return {
-    categoryData: state.category,
+    customerData: state.customer,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    saveCategorys: (category) => dispatch(saveCategory(category)),
+    saveCustomers: (customer) => dispatch(saveCustomer(customer)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateCategoryf);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateCustomer);
