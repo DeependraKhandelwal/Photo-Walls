@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from 'react'
-import { deleteProductFailure, deleteProductRequest, deleteProductsuccess, fetchProductFailure, fetchProductRequest, fetchProductsuccess, saveProductSucces } from "./productAction";
+import { deleteProductFailure, deleteProductRequest, deleteProductsuccess, fetchProductFailure, fetchProductRequest, fetchProductsuccess, fetchProductsuccessById, saveProductSucces } from "./productAction";
 
 export const saveProduct = (productObject) => async (dispatch) => {
     dispatch(fetchProductRequest());
@@ -53,3 +53,23 @@ export const deleteProduct=(pid)=>{
       )
   }
 }
+
+export const fetctProductById=(pid)=>{
+    console.log("pid3",pid)
+    return function(dispatch){
+        console.log("pid1",pid)
+        dispatch(fetchProductRequest())
+        axios.get(`http://localhost:8082/product/getproductById/${pid}`)
+        .then(
+            (response)=>{
+                
+                dispatch(fetchProductsuccessById(response))
+            }
+            
+        ).catch(
+            error=>{
+                dispatch(fetchProductFailure(error.message))
+            }
+        )
+    }
+  }

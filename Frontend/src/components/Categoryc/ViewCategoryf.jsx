@@ -42,7 +42,7 @@ function ViewCategoryf({ fetchCategorys, categoryData, deleteCategorys }) {
          itemstoRender=<div>
              <Navbar2/>
                 <h1>no category</h1>
-                 <button onClick={()=>{history.push("/createCategories")}}>Add Product</button>
+                 <button onClick={()=>{history.push("/allProduct")}}>Add Category</button>
               </div>
      }
 
