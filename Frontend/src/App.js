@@ -34,6 +34,7 @@ import ViewProductCustomer from "./components/products/ViewProductCustomer";
 import AllCustomers from "./components/Customer/AllCustomers";
 import ProductPage from "./components/products/productpage";
 import cart from "./components/MyCart/Cart";
+import CreateCustomer from "./components/Customer/CreateCustomer";
 // import cart from "./components/MyCart/cart";
 function App() {
   return (
@@ -54,7 +55,7 @@ function App() {
             <Route path="/signIn" component={SignIn} />
             <Route path="/register" component={Register} />
             <Route path="/allCustomers" component={AllCustomers} />
-
+            <Route path="/CreateCustomer" component={CreateCustomer} />
             <Route path="/signupactions" component={SignUpAction} />
 
             <Route path="/contactus" component={ContactUs} />

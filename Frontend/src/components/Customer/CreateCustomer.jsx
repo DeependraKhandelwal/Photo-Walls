@@ -2,12 +2,12 @@ import React, { useState } from "react";
 
 import { connect } from "react-redux";
 import { saveCustomer } from "../../redux/Customer/customerThunks";
-import Navbar2 from "../Navbar2";
-function CreateCustomerf(props) {
+import Navbar from "../Navbar";
+function CreateCustomer(props) {
   const [customers, SetCustomers] = useState({
-    addressId: 0,
+
     buildingName: "",
-    cartId: 0,
+
     city: "",
     country: "",
     email: "",
@@ -36,7 +36,7 @@ function CreateCustomerf(props) {
 
   return (
     <div>
-      <Navbar2 />
+      <Navbar />
       <div class="container mt-5">
         <h2>Customer</h2>
         <hr />

@@ -1,468 +1,91 @@
-import React from "react";
-import "./AllCustomers.css";
+import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
+import { fetchCustomer} from '../../redux/Customer/customerThunks'
+import Navbar2 from '../Navbar2'
+import { useHistory } from "react-router-dom";
+function AllCustomers({ fetchCustomer,customerData }) {
 
-function AllCustomers(props) {
-  return (
-    <div class="container mt-3 mb-4">
-      <div class="col-lg-9 mt-4 mt-lg-0">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
-              <table class="table manage-candidates-top mb-0">
-                <thead>
-                  <tr>
-                    <th>Candidate Name</th>
-                    <th class="text-center">Status</th>
-                    <th class="action text-right">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="candidates-list">
-                    <td class="title">
-                      <div class="thumb">
-                        <img
-                          class="img-fluid"
-                          src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="candidate-list-details">
-                        <div class="candidate-list-info">
-                          <div class="candidate-list-title">
-                            <h5 class="mb-0">
-                              <a href="#">Brooke Kelly</a>
-                            </h5>
-                          </div>
-                          <div class="candidate-list-option">
-                            <ul class="list-unstyled">
-                              <li>
-                                <i class="fas fa-filter pr-1"></i>Information
-                                Technology
-                              </li>
-                              <li>
-                                <i class="fas fa-map-marker-alt pr-1"></i>
-                                Rolling Meadows, IL 60008
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="candidate-list-favourite-time text-center">
-                      <a
-                        class="candidate-list-favourite order-2 text-danger"
-                        href="#"
-                      >
-                        <i class="fas fa-heart"></i>
-                      </a>
-                      <span class="candidate-list-time order-1">
-                        Shortlisted
-                      </span>
-                    </td>
-                    <td>
-                      <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                        <li>
-                          <a
-                            href="#"
-                            class="text-primary"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="view"
-                          >
-                            <i class="far fa-eye"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="text-info"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="Edit"
-                          >
-                            <i class="fas fa-pencil-alt"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="text-danger"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="Delete"
-                          >
-                            <i class="far fa-trash-alt"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr class="candidates-list">
-                    <td class="title">
-                      <div class="thumb">
-                        <img
-                          class="img-fluid"
-                          src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="candidate-list-details">
-                        <div class="candidate-list-info">
-                          <div class="candidate-list-title">
-                            <h5 class="mb-0">
-                              <a href="#">Ronald Bradley</a>
-                            </h5>
-                          </div>
-                          <div class="candidate-list-option">
-                            <ul class="list-unstyled">
-                              <li>
-                                <i class="fas fa-filter pr-1"></i>Human
-                                Resources
-                              </li>
-                              <li>
-                                <i class="fas fa-map-marker-alt pr-1"></i>Monroe
-                                Township, NJ 08831
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="candidate-list-favourite-time text-center">
-                      <a
-                        class="candidate-list-favourite order-2 text-danger"
-                        href="#"
-                      >
-                        <i class="fas fa-heart"></i>
-                      </a>
-                      <span class="candidate-list-time order-1">
-                        Shortlisted
-                      </span>
-                    </td>
-                    <td>
-                      <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                        <li>
-                          <a
-                            href="#"
-                            class="text-primary"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="view"
-                          >
-                            <i class="far fa-eye"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="text-info"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="Edit"
-                          >
-                            <i class="fas fa-pencil-alt"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="text-danger"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="Delete"
-                          >
-                            <i class="far fa-trash-alt"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr class="candidates-list">
-                    <td class="title">
-                      <div class="thumb">
-                        <img
-                          class="img-fluid"
-                          src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="candidate-list-details">
-                        <div class="candidate-list-info">
-                          <div class="candidate-list-title">
-                            <h5 class="mb-0">
-                              <a href="#">Rafael Briggs</a>
-                            </h5>
-                          </div>
-                          <div class="candidate-list-option">
-                            <ul class="list-unstyled">
-                              <li>
-                                <i class="fas fa-filter pr-1"></i>Recruitment
-                                Consultancy
-                              </li>
-                              <li>
-                                <i class="fas fa-map-marker-alt pr-1"></i>Haines
-                                City, FL 33844
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="candidate-list-favourite-time text-center">
-                      <a
-                        class="candidate-list-favourite order-2 text-danger"
-                        href="#"
-                      >
-                        <i class="fas fa-heart"></i>
-                      </a>
-                      <span class="candidate-list-time order-1">
-                        Shortlisted
-                      </span>
-                    </td>
-                    <td>
-                      <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                        <li>
-                          <a
-                            href="#"
-                            class="text-primary"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="view"
-                          >
-                            <i class="far fa-eye"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="text-info"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="Edit"
-                          >
-                            <i class="fas fa-pencil-alt"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="text-danger"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="Delete"
-                          >
-                            <i class="far fa-trash-alt"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr class="candidates-list">
-                    <td class="title">
-                      <div class="thumb">
-                        <img
-                          class="img-fluid"
-                          src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="candidate-list-details">
-                        <div class="candidate-list-info">
-                          <div class="candidate-list-title">
-                            <h5 class="mb-0">
-                              <a href="#">Vickie Meyer</a>
-                            </h5>
-                          </div>
-                          <div class="candidate-list-option">
-                            <ul class="list-unstyled">
-                              <li>
-                                <i class="fas fa-filter pr-1"></i>Human
-                                Resources
-                              </li>
-                              <li>
-                                <i class="fas fa-map-marker-alt pr-1"></i>
-                                Minneapolis, MN 55406
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="candidate-list-favourite-time text-center">
-                      <a
-                        class="candidate-list-favourite order-2 text-danger"
-                        href="#"
-                      >
-                        <i class="fas fa-heart"></i>
-                      </a>
-                      <span class="candidate-list-time order-1">
-                        Shortlisted
-                      </span>
-                    </td>
-                    <td>
-                      <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                        <li>
-                          <a
-                            href="#"
-                            class="text-primary"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="view"
-                          >
-                            <i class="far fa-eye"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="text-info"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="Edit"
-                          >
-                            <i class="fas fa-pencil-alt"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="text-danger"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="Delete"
-                          >
-                            <i class="far fa-trash-alt"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr class="candidates-list">
-                    <td class="title">
-                      <div class="thumb">
-                        <img
-                          class="img-fluid"
-                          src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="candidate-list-details">
-                        <div class="candidate-list-info">
-                          <div class="candidate-list-title">
-                            <h5 class="mb-0">
-                              <a href="#">Nichole Haynes</a>
-                            </h5>
-                          </div>
-                          <div class="candidate-list-option">
-                            <ul class="list-unstyled">
-                              <li>
-                                <i class="fas fa-filter pr-1"></i>Information
-                                Technology
-                              </li>
-                              <li>
-                                <i class="fas fa-map-marker-alt pr-1"></i>
-                                Botchergate, Carlisle
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="candidate-list-favourite-time text-center">
-                      <a
-                        class="candidate-list-favourite order-2 text-danger"
-                        href="#"
-                      >
-                        <i class="fas fa-heart"></i>
-                      </a>
-                      <span class="candidate-list-time order-1">
-                        Shortlisted
-                      </span>
-                    </td>
-                    <td>
-                      <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                        <li>
-                          <a
-                            href="#"
-                            class="text-primary"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="view"
-                          >
-                            <i class="far fa-eye"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="text-info"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="Edit"
-                          >
-                            <i class="fas fa-pencil-alt"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="text-danger"
-                            data-toggle="tooltip"
-                            title=""
-                            data-original-title="Delete"
-                          >
-                            <i class="far fa-trash-alt"></i>
-                          </a>
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="text-center mt-3 mt-sm-3">
-                <ul class="pagination justify-content-center mb-0">
-                  <li class="page-item disabled">
-                    {" "}
-                    <span class="page-link">Prev</span>{" "}
-                  </li>
-                  <li class="page-item active" aria-current="page">
-                    <span class="page-link">1 </span>{" "}
-                    <span class="sr-only">(current)</span>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">
-                      2
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">
-                      3
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">
-                      ...
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">
-                      25
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    {" "}
-                    <a class="page-link" href="#">
-                      Next
-                    </a>{" "}
-                  </li>
-                </ul>
+
+    const history = useHistory()
+    useEffect(() => {
+      fetchCustomer()
+
+    }, [])
+
+    let itemstoRender;
+    if (customerData.loading) { 
+        itemstoRender = <h2>Loading.....</h2> }
+    else if (customerData.error) { 
+        itemstoRender = <h2>{customerData.error}</h2>
+     }
+     else if(customerData.customer.length === 0){
+         itemstoRender=<div>
+             <Navbar2/>
+                <h1>No Customer {JSON.stringify(customerData.customer)}</h1>
               </div>
+     }
+
+    else {
+
+        {/* <Navbar2></Navbar2> */ }
+        // categorys.length !== 0 ? (
+          itemstoRender=  <div className="text-left">
+              <Navbar2/>
+                <h2>Customers</h2>
+
+                <h4 className='text-success'>{customerData.message && customerData.message.data}</h4>
+                <h4 className='text-danger'>{customerData.error && customerData.error}</h4>
+
+                <table class="table table-dark  table-hover table-borderless">
+
+                    <thead className='bg-dark'>
+                        <tr>
+                            <th scope="col">Customer Name</th>
+                            <th scope="col">Customer Email </th>
+                            <th scope="col">Customer MobileNumber</th>
+                            <th scope="col">Customer Location </th>
+                        </tr>
+                    </thead>
+                    <tbody>{
+
+customerData.customer.map(customer => (
+                            <tr >
+                                <th scope="row" >{customer.firstName+customer.lastName}</th>
+                                <td >{customer.email}</td>
+                                <td >{customer.mobileNumber}</td>
+                                <td >{customer.city+","+customer.state+","+customer.country+"-"+customer.pincode}</td>
+                            </tr>
+                        ))
+                    }
+                    </tbody>
+
+                </table>
+
+
+
+
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+            // )
+            // : (
+            //     <div>
+            //         <h1>no category</h1>
+            //         <button>Add Product</button>
+            //     </div>
+            // )
+
+    }
+    return (itemstoRender);
+}
+const mapStateToProps = (state) => {
+    return {
+        customerData: state.customer
+
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchCustomer: (customer) => dispatch(fetchCustomer(customer))
+    }
 }
 
-export default AllCustomers;
+export default connect(mapStateToProps, mapDispatchToProps)(AllCustomers)

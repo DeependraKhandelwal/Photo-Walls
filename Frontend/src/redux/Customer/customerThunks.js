@@ -3,7 +3,7 @@ import {
   fetchCustomerRequest,
   fetchCustomersuccess,
   fetchCustomerFailure,
-  saveCustomerSucces,
+  saveCustomerySucces,
   deleteCustomerRequest,
   deleteCustomersuccess,
   deleteCustomerFailure,
@@ -35,7 +35,7 @@ export const saveCustomer = (customerObject) => async (dispatch) => {
       "http://localhost:8082/customer",
       customerObject
     );
-    dispatch(saveCustomerSucces(response.data));
+    dispatch(saveCustomerySucces(response.data));
     return Promise.resolve(response.data);
   } catch (error) {
     dispatch(fetchCustomerFailure(error.message));

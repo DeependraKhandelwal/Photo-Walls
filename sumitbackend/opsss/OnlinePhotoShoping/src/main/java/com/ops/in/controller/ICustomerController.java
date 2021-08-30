@@ -30,8 +30,6 @@ import io.swagger.annotations.ApiOperation;
 
 
 @CrossOrigin(origins="*")
-
-
 @RestController
 @RequestMapping(value = "/customer")
 public class ICustomerController {
