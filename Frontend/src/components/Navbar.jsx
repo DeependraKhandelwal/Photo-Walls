@@ -76,6 +76,25 @@ export function Navbar2() {
               </h4>
             </a>
           </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href=""
+              onClick={() => {
+                history.push("/CreateCustomer");
+              }}
+            >
+              <h4
+                style={{
+                  color: "black",
+                  fontfamily:
+                    "Impact, Haettenschweiler, Arial Narrow Bold, sans-serif",
+                }}
+              >
+                Customer
+              </h4>
+            </a>
+          </li>
         </ul>
       </div>
       <ul class="navbar-nav d-flex me-4">
