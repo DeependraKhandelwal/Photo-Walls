@@ -28,21 +28,21 @@ public class Customer {
 	    @SequenceGenerator(sequenceName = "customer_seq", allocationSize = 1, name = "customer_seq")
 		private Integer customerId;
 	 
-		@NotEmpty(message= "First Name can not be null")
+//		@NotEmpty(message= "First Name can not be null")
 		private String firstName;
 		
-		@NotEmpty(message= "Last Name can not be null")
+//		@NotEmpty(message= "Last Name can not be null")
 		private String lastName;
 		
-		@NotEmpty(message= "mobileNumber can not be null")
-		@Size(min = 10, message="Mobile no should be in 10 digits")
+//		@NotEmpty(message= "mobileNumber can not be null")
+//		@Size(min = 10, message="Mobile no should be in 10 digits")
 		private String mobileNumber;
 		
-		@NotEmpty(message= "email can not be null")
+//		@NotEmpty(message= "email can not be null")
 		@Column(unique = true)
 		private String email;
 		
-		@NotEmpty(message= "Password can not be null")
+//		@NotEmpty(message= "Password can not be null")
 		private String password;
 		
 		@OneToOne(cascade = CascadeType.ALL)
