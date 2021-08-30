@@ -8,6 +8,7 @@ import { fetchProduct, fetctProductById } from '../../redux/Product/productThunk
 import { addproductcart } from '../../redux/Cart/CartThunks';
 import Navbar from "../Navbar";
 import Navbar2 from '../Navbar2';
+import category1 from "../../images/category1.jpeg"
 function ProductPage( {fetchProductss ,productData,addToCarts}) {
 
     // const location = useLocation();
@@ -48,11 +49,11 @@ function ProductPage( {fetchProductss ,productData,addToCarts}) {
     //     //     })
 
     //     fetchProducts()
-         fetchProductss(pid)
+         fetchProductss(id)
         
 
     },[])
-   
+    console.log('products',productData.Product.productImage)
     
     // console.log(cartObject)
    const handlecart=(()=>
@@ -82,9 +83,10 @@ function ProductPage( {fetchProductss ,productData,addToCarts}) {
     //     fetchProduct(state)
     //  }, [state]);
 
-     console.log(productData)
+    //  console.log('products',productData.Product.productImage)
      let itemstoRenders;
-      if (productData.error) {
+     if(productData.loading){itemstoRenders =<h1>Loading...</h1>}
+       else if (productData.error) {
         itemstoRenders = (<h1>{productData.error}</h1>)}
     else{
             itemstoRenders=
@@ -97,11 +99,11 @@ function ProductPage( {fetchProductss ,productData,addToCarts}) {
                             <div class="preview col-md-6">
 
                                 <div class="preview-pic tab-content">
-                                    <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
-                                    <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
+                                    <div class="tab-pane active" id="pic-1"><img src={productData.Product.productImage} alt='image not found'/></div>
+                                    {/* <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
                                     <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
                                     <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
-                                    <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
+                                    <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div> */}
                                 </div>
                                 <ul class="preview-thumbnail nav nav-tabs">
                                     <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
@@ -125,7 +127,7 @@ function ProductPage( {fetchProductss ,productData,addToCarts}) {
                                     <span class="review-no">41 reviews</span>
                                 </div>
                                 <p class="product-description"></p>
-                                <h4 class="price">current price: <span></span></h4>
+                                <h4 class="price">current price:{productData.Product.price} <span></span></h4>
                                 <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
                                 <h5 class="sizes">sizes:
                                     <span class="size" data-toggle="tooltip" title="small">s</span>
@@ -152,6 +154,7 @@ function ProductPage( {fetchProductss ,productData,addToCarts}) {
         </div>
     }
     return itemstoRenders;
+    // return <h1>hello world</h1>
 }
 
 

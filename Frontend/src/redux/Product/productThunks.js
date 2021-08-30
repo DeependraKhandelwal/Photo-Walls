@@ -62,7 +62,7 @@ export const fetctProductById=(pid)=>{
         axios.get(`http://localhost:8082/product/getproductById/${pid}`)
         .then(
             (response)=>{
-                
+                console.log("responce",response)
                 dispatch(fetchProductsuccessById(response))
             }
             

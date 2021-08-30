@@ -15,7 +15,7 @@ function CreateCategoryf(props) {
           dimension: '',
           manufacturer:'' ,
           price: 0,
-          productId: 0,
+         
           productImage:'',
           productName:'',
           quantity: 0,

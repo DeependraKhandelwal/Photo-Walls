@@ -1,10 +1,11 @@
-import { DELETE_CATEGORY_FAILURE, DELETE_CATEGORY_REQUEST, DELETE_CATEGORY_SUCCESS, FETCH_CATEGORY_FAILURE, FETCH_CATEGORY_REQUEST, FETCH_CATEGORY_SUCCESS, SAVE_CATEGORY_SUCCESS, UPDATE_CATEGORY_FAILURE, UPDATE_CATEGORY_REQUEST, UPDATE_CATEGORY_SUCCESS } from "./categoryType"
+import { DELETE_CATEGORY_FAILURE, DELETE_CATEGORY_REQUEST, DELETE_CATEGORY_SUCCESS, FETCH_CATEGORY_FAILURE, FETCH_CATEGORY_REQUEST, FETCH_CATEGORY_SUCCESS, FETCH_PRODUCT_CATEGORY_FAILURE, FETCH_PRODUCT_CATEGORY_REQUEST, FETCH_PRODUCT_CATEGORY_SUCCESS, SAVE_CATEGORY_SUCCESS, UPDATE_CATEGORY_FAILURE, UPDATE_CATEGORY_REQUEST, UPDATE_CATEGORY_SUCCESS } from "./categoryType"
 
 const initalState = {
     category: [],
     error: '',
     loading: false,
-    message: ''
+    message: '',
+    product:[]
 }
 
 
@@ -118,6 +119,40 @@ const categoryReducer = (state = initalState, action) => {
                 loading: false,
                 error: action.payload
             }
+        }
+
+
+        case FETCH_PRODUCT_CATEGORY_REQUEST: {
+
+            return {
+                ...state,
+                loading: true
+            }
+
+        }
+
+        case FETCH_PRODUCT_CATEGORY_SUCCESS: {
+
+            return {
+                ...state,
+                loading: false,
+                category: action.payload.data,
+                error: ''
+
+            }
+
+        }
+
+        case FETCH_PRODUCT_CATEGORY_FAILURE: {
+
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+
+
+
         }
 
 

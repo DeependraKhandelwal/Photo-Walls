@@ -1,5 +1,5 @@
 import axios from "axios"
-import{fetchCategoryRequest,fetchCategorysuccess,fetchCategoryFailure, saveCategorySucces, deleteCategoryRequest, deleteCategorysuccess, deleteCategoryFailure, updateCategoryRequest, updateCategorysuccess, updateCategoryFailure}from "./categoryAction"
+import{fetchCategoryRequest,fetchCategorysuccess,fetchCategoryFailure, saveCategorySucces, deleteCategoryRequest, deleteCategorysuccess, deleteCategoryFailure, updateCategoryRequest, updateCategorysuccess, updateCategoryFailure, fetchProductCategoryRequest, fetchProductCategoryFailure, fetchProductCategorysuccess}from "./categoryAction"
 
 export const fetchCategory=()=>{
 
@@ -86,5 +86,27 @@ export const updateCategory = (categoryObject) => async (dispatch) => {
     } catch (error) {
       dispatch(updateCategoryFailure(error.message));
       return Promise.reject(error);
+    }
+}
+
+
+
+export const fetchproductCategory=(cid)=>{
+    console.log("cid3",cid)
+    return function(dispatch){
+        console.log("cid1",cid)
+        dispatch(fetchProductCategoryRequest())
+        axios.get(`http://localhost:8082/category/getProductsByCategory/${cid}`)
+        .then(
+            (response)=>{
+                console.log(response)
+                dispatch(fetchProductCategorysuccess(response))
+            }
+            
+        ).catch(
+            error=>{
+                dispatch(fetchProductCategoryFailure(error.message))
+            }
+        )
     }
 }

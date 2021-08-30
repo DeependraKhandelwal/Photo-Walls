@@ -16,9 +16,9 @@ function ViewProductCustomer({ fetchProducts, productData }) {
     useEffect(() => {
         fetchProducts()
 
-        console.log(productData)
+        
     }, [])
-
+    console.log(productData)
 
 
 
@@ -37,7 +37,7 @@ function ViewProductCustomer({ fetchProducts, productData }) {
         itemstoRenders = <div>
             <Navbar2 />
             <h1>no product</h1>
-            <button onClick={() => { history.push("/createCategories") }}>Add Product</button>
+            {/* <button onClick={() => { history.push("/createCategories") }}>Add Product</button> */}
         </div>
     }
     else {
@@ -54,7 +54,8 @@ function ViewProductCustomer({ fetchProducts, productData }) {
                         (<div class="col-md-4 mt-5">
                             <div class="card">
                                 {/* <a href="#" onClick={()=>{history.push("/productpage", )}}> */}
-                                <a href="#" onClick={() => history.push({
+                                <a href="#"
+                                 onClick={() => history.push({
                                     pathname: `/productpage/${product.productId}`,
                                     // search: `${product.productId}`,
                                     // state: { id: `${product.productId}}`

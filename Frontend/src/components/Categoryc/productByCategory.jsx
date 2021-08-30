@@ -1,29 +1,21 @@
 import React,{useEffect} from 'react'
 import { connect } from 'react-redux'
-// import category1 from '../../images/category1.jpeg'
-
-import ReactDOM from "react-dom";
-import { fetchCategory } from '../../redux/Category/categoryThunks'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    useParams
-  } from "react-router-dom"
+import { fetchproductCategory } from '../../redux/Category/categoryThunks'
+import { useParams } from 'react-router-dom'
 import Navbar2 from '../Navbar'
 import { useHistory } from "react-router-dom"
+ function ProductByCategory({categoryData,fetchProductc}) {
+    const { id } = useParams();
 
-function ViewCategoryCustumer({ fetchCategorys, categoryData }) {
     let history = useHistory();
-
-    let { sumit } = useParams();
-    console.log("ljdfsl",sumit)
     useEffect(() => {
-        fetchCategorys()
+        fetchProductc(id)
 
+      
     }, [])
 
-
+      console.log("mydata",categoryData)
+        
     let itemstoRender;
     if (categoryData.loading) { 
         itemstoRender = <h2>Loading.....</h2> }
@@ -42,17 +34,17 @@ function ViewCategoryCustumer({ fetchCategorys, categoryData }) {
        itemstoRender= <div>
         <Navbar2 />
         <div class="container mt-5">
-            <h1 class="text-center font-weight-normal">Categorys</h1>
+            <h1 class="text-center font-weight-normal">products</h1>
 
             <div class="container mt-4 d-flex mb-5">
                 <div class="row">{
                 categoryData.category.map(category =>
-                    (<div key={category.categoryId }class="col-md-4 mt-5">
+                    (<div key={category.productId }class="col-md-4 mt-5">
                         <div class="card">
-                            <img src={category.categoryImage} alt='image not found' class="card-image-top w-100" onClick={() => history.push({
-                                    pathname: `/productByCategory/${category.categoryName}`})} />
+                            <img src={category.productImage} alt='image not found' class="card-image-top w-100" onClick={() => history.push({
+                                    pathname: `/productpage/${category.productId}`})} />
                             <div class="crad-body">
-                                <h2 >{category.categoryName}</h2>
+                                <h2 >{category.productName}</h2>
                                 <div class="d-flex justify-content-between">
                                     <p class="card-text">{category.categoryDescription}
                                     </p>
@@ -69,20 +61,9 @@ function ViewCategoryCustumer({ fetchCategorys, categoryData }) {
         </div>
      }
      return itemstoRender;
+      
 }
-// ReactDOM.render(
-//     <Router>
-//       <Switch>
-//         <Route exact path="/">
-//           {/* <HomePage /> */}
-//         </Route>
-//         <Route path="/categories/:slug">
-//           {/* <BlogPost /> */}
-//         </Route>
-//       </Switch>
-//     </Router>,
-//     // node
-//   );
+
 const mapStateToProps = (state) => {
     return {
         categoryData: state.category
@@ -91,8 +72,10 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchCategorys: (category) => dispatch(fetchCategory(category))
+        fetchProductc: (product) => dispatch(fetchproductCategory(product)),
+
+        // addtoCarts:(pid)=>dispatch(addtoCart(pid))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewCategoryCustumer)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductByCategory)

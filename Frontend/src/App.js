@@ -28,6 +28,7 @@ import ViewProductCustomer from "./components/products/ViewProductCustomer";
 
 import ProductPage from "./components/products/productpage";
 import cart from "./components/MyCart/Cart";
+import ProductByCategory from "./components/Categoryc/productByCategory";
 // import cart from "./components/MyCart/cart";
 function App() {
   return (
@@ -53,6 +54,9 @@ function App() {
           <Route path="/contactus" component={ContactUs} />
 
           <Route path="/productpage/:id" component={ProductPage} />
+          <Route path="/productByCategory/:id" component={ProductByCategory} />
+
+
         </Switch>  
         </div>   
         </Provider>

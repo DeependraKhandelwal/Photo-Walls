@@ -124,7 +124,7 @@ const productReducer = (state = initalState, action) => {
             return {
                 ...state,
                 loading: false,
-                Product: action.payload,
+                Product: action.payload.data,
                 error: ''
 
             }

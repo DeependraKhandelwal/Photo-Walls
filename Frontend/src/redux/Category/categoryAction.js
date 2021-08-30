@@ -1,4 +1,4 @@
-import { DELETE_CATEGORY_FAILURE, DELETE_CATEGORY_REQUEST, DELETE_CATEGORY_SUCCESS, FETCH_CATEGORY_FAILURE, FETCH_CATEGORY_REQUEST, FETCH_CATEGORY_SUCCESS, SAVE_CATEGORY_SUCCESS, UPDATE_CATEGORY_FAILURE, UPDATE_CATEGORY_REQUEST, UPDATE_CATEGORY_SUCCESS } from "./categoryType"
+import { DELETE_CATEGORY_FAILURE, DELETE_CATEGORY_REQUEST, DELETE_CATEGORY_SUCCESS, FETCH_CATEGORY_FAILURE, FETCH_CATEGORY_REQUEST, FETCH_CATEGORY_SUCCESS, FETCH_PRODUCT_CATEGORY_FAILURE, FETCH_PRODUCT_CATEGORY_REQUEST, FETCH_PRODUCT_CATEGORY_SUCCESS, SAVE_CATEGORY_SUCCESS, UPDATE_CATEGORY_FAILURE, UPDATE_CATEGORY_REQUEST, UPDATE_CATEGORY_SUCCESS } from "./categoryType"
 
 export const fetchCategoryRequest=()=>{
     return{
@@ -62,6 +62,25 @@ export const updateCategorysuccess=(category)=>{
 export const updateCategoryFailure=(error)=>{
     return{
         type:UPDATE_CATEGORY_FAILURE,
+        payload:error
+    }
+}
+
+export const fetchProductCategoryRequest=()=>{
+    return{
+        type:FETCH_PRODUCT_CATEGORY_REQUEST
+    
+    }
+}
+export const fetchProductCategorysuccess=(category)=>{
+    return{
+        type:FETCH_PRODUCT_CATEGORY_SUCCESS,
+        payload:category
+    }
+}
+export const fetchProductCategoryFailure=(error)=>{
+    return{
+        type:FETCH_PRODUCT_CATEGORY_FAILURE,
         payload:error
     }
 }
