@@ -11,7 +11,7 @@ function AllCustomers({ fetchCustomer,customerData }) {
       fetchCustomer()
 
     }, [])
-
+console.log(customerData.customer)
     let itemstoRender;
     if (customerData.loading) { 
         itemstoRender = <h2>Loading.....</h2> }
